@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Rules\Password;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,5 +22,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Schema::defaultStringLength(191);
+        Password::defaults(function () {
+            return Password::min(8)
+                ->letters()      // At least one letter
+                ->mixedCase()    // At least one uppercase and one lowercase
+                ->numbers();     // At least one number
+        });
     }
 }
