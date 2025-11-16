@@ -1,4 +1,4 @@
-https://github.com/ajithmv-web/mighty-warners-project.git
+git  clone https://github.com/ajithmv-web/mighty-warners-project.git
 cd mighty-warners-project
 #
 composer install
